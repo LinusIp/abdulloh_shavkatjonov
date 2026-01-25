@@ -225,7 +225,66 @@
       .section-title { font-size: 1.6rem; }
     }
       .hero-image img { margin: 0 auto; }
-    
+        /* --- Image Carousel --- */
+.carousel {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center; /* prevents top clipping */
+  animation: scroll 40s linear infinite;
+}
+
+
+.carousel img {
+  width: 260px;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.04);
+  flex-shrink: 0;
+
+  transition:
+    transform 0.45s ease,
+    box-shadow 0.45s ease;
+}
+
+.carousel img:hover {
+  transform: scale(1.15);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.5);
+  z-index: 5;
+}
+
+.carousel {
+  overflow-x: hidden;
+  overflow-y: visible; /* allow vertical expansion */
+  padding: 2.5rem 0;   /* breathing room for hover scale */
+  position: relative;
+}
+
+
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
   </style>
 </head>
 <body>
@@ -308,6 +367,29 @@
       <img src="newuu.webp" class="photo" />
       <img src="download-_1_.jpg" class="photo" />
       <img src="download-_2_.jpg" class="photo" />
+    </div>
+  </section>
+  <section id="carousel">
+    <h2 class="section-title">Moments</h2>
+
+    <div class="carousel">
+        <div class="carousel-track">
+        <!-- placeholders -->
+        <img src="me.jpg" alt="placeholder" />
+        <img src="newcampus.jpg" alt="placeholder" />
+        <img src="#" alt="placeholder" />
+        <img src="#" alt="placeholder" />
+        <img src="#" alt="placeholder" />
+        <img src="#" alt="placeholder" />
+
+        <!-- duplicate for seamless loop -->
+        <img src="#" alt="placeholder" />
+        <img src="#" alt="placeholder" />
+        <img src="#" alt="placeholder" />
+        <img src="#" alt="placeholder" />
+        <img src="#" alt="placeholder" />
+        <img src="#" alt="placeholder" />
+        </div>
     </div>
   </section>
 
