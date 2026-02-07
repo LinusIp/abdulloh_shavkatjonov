@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
+
 <title>Abdulloh | Portfolio</title>
 <link rel="icon" type="image/png" sizes="any" href="mebrand.png">
 <link rel="apple-touch-icon" href="mebrand.png">
@@ -123,7 +124,9 @@ header{
 }
 
 .btn{
-  display:inline-block;
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
   padding:.6rem 1.2rem;
   border-radius:999px;
   border:1px solid var(--border);
@@ -136,6 +139,27 @@ header{
 .btn:hover{
   background:var(--accent-soft);
 }
+
+.btn i{
+  width:16px;
+  height:16px;
+}
+.hero-socials{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.8rem;
+  margin-top:1.2rem;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  letter-spacing:.02em;
+}
+
+
+
+
 
 .hero-image img{
   width:100%;
@@ -249,6 +273,9 @@ footer{
 }
 </style>
 </head>
+<script>
+  lucide.createIcons();
+</script>
 
 <body>
 
@@ -271,8 +298,13 @@ footer{
       Curious about startups, technology, and creating things that actually ship.
     </p>
 
-    <a href="https://github.com/LinusIp/" class="btn">GitHub</a>
-    <a href="https://www.linkedin.com/in/abdulloh-shavkatjonov-418439271" class="btn">LinkedIn</a>
+    <div class="hero-socials">
+     <a href="https://youtube.com/@shavkatjonovabdulloh?si=yEsuNWzm1sNQKnEg" class="btn">▶ YouTube</a>
+     <a href="https://github.com/LinusIp/" class="btn">⌘ GitHub</a>
+     <a href="https://www.linkedin.com/in/abdulloh-shavkatjonov-418439271" class="btn">in LinkedIn</a>
+     <a href="https://www.instagram.com/abdulloh_shavkatjonov_/" class="btn">◎ Instagram</a>
+   </div>
+
   </div>
 
   <div class="hero-image">
@@ -383,6 +415,7 @@ footer{
 
 </body>
 </html>
+
 
 
 
