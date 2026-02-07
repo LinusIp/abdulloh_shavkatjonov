@@ -1,424 +1,381 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Abdulloh | Personal Page</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+<title>Abdulloh | Portfolio</title>
 
-  <style>
-    :root {
-      --bg: #0b0c10;
-      --card: rgba(255, 255, 255, 0.06);
-      --accent: #d6b98c;
-      --accent-soft: rgba(214, 185, 140, 0.35);
-      --text: #f5f5f5;
-      --muted: #b3b3b3;
-      --border: rgba(255, 255, 255, 0.12);
-    }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: radial-gradient(circle at 20% 20%, rgba(214,185,140,0.06), transparent 40%),
-                  radial-gradient(circle at 80% 80%, rgba(214,185,140,0.05), transparent 40%),
-                  linear-gradient(180deg, #0b0c10, #141622);
-      color: var(--text);
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-      scroll-behavior: smooth;
-    }
-
-    nav {
-      position: fixed;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--card);
-      backdrop-filter: blur(14px);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 0.6rem 1.4rem;
-      display: flex;
-      align-items: center;
-      gap: 1.4rem;
-      z-index: 1000;
-    }
-
-    .socials {
-      display: flex;
-      gap: 0.8rem;
-      padding-left: 0.8rem;
-      border-left: 1px solid var(--border);
-    }
-
-    .socials a {
-      font-size: 0.8rem;
-      width: 28px;
-      height: 28px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.04);
-      transition: background 0.3s ease, transform 0.3s ease;
-    }
-
-    .socials a:hover {
-      background: var(--accent-soft);
-      transform: translateY(-2px);
-    }
-
-    nav a {
-      text-decoration: none;
-      color: var(--text);
-      font-size: 0.85rem;
-      opacity: 0.85;
-    }
-
-    nav a:hover { opacity: 1; color: var(--accent); }
-
-    header {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      align-items: center;
-      padding: 7rem 10vw 5rem;
-      gap: 4rem;
-    }
-
-    .hero-text h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.6rem, 4vw, 3.6rem);
-      margin-bottom: 1rem;
-      letter-spacing: -0.02em;
-    }
-
-    .hero-text p {
-      color: var(--muted);
-      max-width: 480px;
-      font-size: 1.05rem;
-      margin-bottom: 1.8rem;
-    }
-
-    .hero-socials {
-      display: flex;
-      gap: 1rem;
-    }
-
-    .hero-socials a {
-      font-size: 0.75rem;
-      letter-spacing: 0.08em;
-      padding: 0.5rem 1rem;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      text-decoration: none;
-      color: var(--text);
-      opacity: 0.85;
-      transition: background 0.3s ease, opacity 0.3s ease;
-    }
-
-    .hero-socials a:hover {
-      background: var(--accent-soft);
-      opacity: 1;
-    }
-
-    .hero-image img {
-      width: 100%;
-      max-width: 360px;
-      border-radius: 22px;
-      object-fit: cover;
-      border: 1px solid var(--border);
-      box-shadow: 0 30px 70px rgba(0,0,0,0.45);
-      transition: transform 0.6s ease, box-shadow 0.6s ease;
-    }
-
-    .hero-image img:hover {
-      transform: translateY(-6px) scale(1.01);
-      box-shadow: 0 40px 90px rgba(0,0,0,0.55);
-    }
-
-    section {
-      padding: 6rem 10vw;
-    }
-
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.1rem;
-      margin-bottom: 2.5rem;
-      position: relative;
-    }
-
-    .section-title::after {
-      content: '';
-      display: block;
-      width: 60px;
-      height: 2px;
-      margin-top: 12px;
-      background: linear-gradient(90deg, var(--accent), transparent);
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 2.5rem;
-      backdrop-filter: blur(14px);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 25px 60px rgba(0,0,0,0.35);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
-    }
-
-    .photo {
-      width: 100%;
-      border-radius: 16px;
-      border: 1px solid var(--border);
-    }
-
-    footer {
-      text-align: center;
-      padding: 4rem 2rem;
-      color: var(--muted);
-      font-size: 0.8rem;
-      opacity: 0.8;
-    }
-    /* Photo scroll animation */
-    .photo {
-      opacity: 0;
-      transform: translateY(30px) scale(0.98);
-      transition: opacity 0.4s ease, transform 0.4s ease;
-    }
-
-    .photo.show {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-
-    @media (max-width: 900px) {
-      header {
-        grid-template-columns: 1fr;
-        text-align: center;
-        padding: 5rem 6vw;
-      }
-      .hero-text p { margin: 0 auto; }
-      .hero-image img { margin: 2rem auto 0; max-width: 280px; }
-    }
-
-    @media (max-width: 500px) {
-      nav {
-        padding: 0.5rem 1rem;
-        gap: 1rem;
-      }
-      nav a { font-size: 0.75rem; }
-      section { padding: 4rem 6vw; }
-      .section-title { font-size: 1.6rem; }
-    }
-      .hero-image img { margin: 0 auto; }
-        /* --- Image Carousel --- */
-.carousel {
-  overflow: hidden;
-  width: 100%;
-  position: relative;
-  mask-image: linear-gradient(
-    to right,
-    transparent,
-    black 10%,
-    black 90%,
-    transparent
-  );
+<style>
+/* ===============================
+   VARIABLES
+================================*/
+:root{
+  --bg:#0b0c10;
+  --card:rgba(255,255,255,.06);
+  --accent:#d6b98c;
+  --accent-soft:rgba(214,185,140,.25);
+  --text:#f5f5f5;
+  --muted:#a9a9a9;
+  --border:rgba(255,255,255,.12);
 }
 
-.carousel-track {
-  display: flex;
-  gap: 1.6rem;
-  align-items: center; /* prevents top clipping */
-  animation: scroll 10s linear infinite;
+/* ===============================
+   BASE
+================================*/
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-
-.carousel img {
-  width: 260px;
-  height: 170px;
-  object-fit: cover;
-  border-radius: 16px;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,0.04);
-  flex-shrink: 0;
-
-  transition:
-    transform 0.45s ease,
-    box-shadow 0.45s ease;
+body{
+  font-family:'Inter',sans-serif;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(214,185,140,.05), transparent 40%),
+    linear-gradient(#0b0c10,#141622);
+  color:var(--text);
+  line-height:1.7;
+  scroll-behavior:smooth;
 }
 
-.carousel img:hover {
-  transform: scale(1.15);
-  box-shadow: 0 30px 70px rgba(0,0,0,0.5);
-  z-index: 5;
+section{
+  padding:6rem 10vw;
 }
 
-.carousel {
-  overflow-x: hidden;
-  overflow-y: visible; /* allow vertical expansion */
-  padding: 2.5rem 0;   /* breathing room for hover scale */
-  position: relative;
+h1,h2,h3{
+  font-weight:600;
 }
 
+.section-title{
+  font-family:'Playfair Display',serif;
+  font-size:2.2rem;
+  margin-bottom:2.5rem;
+}
 
+.section-title::after{
+  content:"";
+  display:block;
+  width:60px;
+  height:2px;
+  margin-top:10px;
+  background:linear-gradient(90deg,var(--accent),transparent);
+}
 
-@keyframes scroll {
-  from {
-    transform: translateX(0);
+/* ===============================
+   NAV
+================================*/
+nav{
+  position:fixed;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+  background:var(--card);
+  backdrop-filter:blur(12px);
+  border:1px solid var(--border);
+  border-radius:999px;
+  padding:.6rem 1.4rem;
+  display:flex;
+  gap:1.4rem;
+  z-index:999;
+}
+
+nav a{
+  color:var(--text);
+  text-decoration:none;
+  font-size:.85rem;
+  opacity:.8;
+}
+
+nav a:hover{
+  color:var(--accent);
+  opacity:1;
+}
+
+/* ===============================
+   HERO
+================================*/
+header{
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  align-items:center;
+  padding:7rem 10vw;
+  gap:4rem;
+}
+
+.hero-text h1{
+  font-family:'Playfair Display',serif;
+  font-size:3.4rem;
+  margin-bottom:1rem;
+}
+
+.hero-text p{
+  color:var(--muted);
+  max-width:500px;
+  margin-bottom:1.6rem;
+}
+
+.btn{
+  display:inline-block;
+  padding:.6rem 1.2rem;
+  border-radius:999px;
+  border:1px solid var(--border);
+  text-decoration:none;
+  color:var(--text);
+  font-size:.85rem;
+  transition:.3s;
+}
+
+.btn:hover{
+  background:var(--accent-soft);
+}
+
+.hero-image img{
+  width:100%;
+  max-width:340px;
+  border-radius:22px;
+  border:1px solid var(--border);
+  box-shadow:0 30px 70px rgba(0,0,0,.45);
+}
+
+/* ===============================
+   CARD SYSTEM
+================================*/
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:2rem;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:2rem;
+  backdrop-filter:blur(12px);
+  transition:.35s;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 25px 60px rgba(0,0,0,.35);
+}
+
+.card p{
+  color:var(--muted);
+}
+
+/* ===============================
+   PORTFOLIO
+================================*/
+.project{
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  min-height:190px;
+  gap:1rem;
+}
+
+.project h3{
+  font-size:1.2rem;
+}
+
+.project a{
+  align-self:flex-start;
+}
+
+/* ===============================
+   CAROUSEL
+================================*/
+.carousel{
+  overflow:hidden;
+  mask-image:linear-gradient(to right,transparent,black 10%,black 90%,transparent);
+}
+
+.track{
+  display:flex;
+  gap:1.5rem;
+  animation:scroll 18s linear infinite;
+}
+
+.track img{
+  width:260px;
+  height:170px;
+  object-fit:cover;
+  border-radius:16px;
+  border:1px solid var(--border);
+  flex-shrink:0;
+  transition:.4s;
+}
+
+.track img:hover{
+  transform:scale(1.15);
+}
+
+@keyframes scroll{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+
+/* ===============================
+   FOOTER
+================================*/
+footer{
+  text-align:center;
+  padding:3rem;
+  font-size:.85rem;
+  color:var(--muted);
+}
+
+/* ===============================
+   MOBILE
+================================*/
+@media(max-width:900px){
+  header{
+    grid-template-columns:1fr;
+    text-align:center;
   }
-  to {
-    transform: translateX(-50%);
+
+  .hero-image{
+    margin:auto;
   }
 }
-
-  </style>
+</style>
 </head>
+
 <body>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#education">Education</a>
-    <a href="#projects">What I Do</a>
-    <a href="#photos">Photos</a>
-    <div class="socials">
-      <a href="https://youtube.com/@shavkatjonovabdulloh?si=yEsuNWzm1sNQKnEg" aria-label="YouTube">▶</a>
-      <a href="https://github.com/LinusIp/" aria-label="GitHub">⌘</a>
-      <a href="https://www.linkedin.com/in/abdulloh-shavkatjonov-418439271?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" aria-label="LinkedIn">in</a>
-    </div>
-  </nav>
+<!-- NAV -->
+<nav>
+  <a href="#about">About</a>
+  <a href="#education">Education</a>
+  <a href="#projects">What I Do</a>
+  <a href="#portfolio">Portfolio</a>
+  <a href="#moments">Moments</a>
+</nav>
 
-  <header>
-    <div class="hero-text">
-      <h1>Abdulloh</h1>
-      <p>
-        AI & Robotics student. Learning, building, and slowly shaping ideas
-        into real things.
-      </p>
-      <div class="hero-socials">
-        <a href="https://youtube.com/@shavkatjonovabdulloh?si=yEsuNWzm1sNQKnEg">YouTube</a>
-        <a href="https://github.com/LinusIp/">GitHub</a>
-        <a href="https://www.linkedin.com/in/abdulloh-shavkatjonov-418439271?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">LinkedIn</a>
-        <a href="https://www.instagram.com/abdulloh_shavkatjonov_/">Instagram</a>
-      </div>
-    </div>
-    <div class="hero-image">
-      <img src="me.jpg" alt="Portrait of Abdulloh" />
-    </div>
-  </header>
 
-  <section id="about">
-    <h2 class="section-title">About Me</h2>
+<!-- HERO -->
+<header>
+  <div class="hero-text">
+    <h1>Abdulloh</h1>
+    <p>
+      AI & Robotics student building games, tools, and ideas.
+      Curious about startups, technology, and creating things that actually ship.
+    </p>
+
+    <a href="https://github.com/LinusIp/" class="btn">GitHub</a>
+    <a href="https://www.linkedin.com/in/abdulloh-shavkatjonov-418439271" class="btn">LinkedIn</a>
+  </div>
+
+  <div class="hero-image">
+    <img src="me.jpg" alt="portrait"/>
+  </div>
+</header>
+
+
+<!-- ABOUT -->
+<section id="about">
+  <h2 class="section-title">About</h2>
+  <div class="card">
+    <p>
+      Freshman at New Uzbekistan University studying AI & Robotics.
+      I enjoy building small projects, experimenting with game dev,
+      and turning ideas into real working products.
+    </p>
+  </div>
+</section>
+
+
+<!-- EDUCATION -->
+<section id="education">
+  <h2 class="section-title">Education</h2>
+
+  <div class="grid">
     <div class="card">
-      <p>
-        I'm Abdulloh, a freshman majoring in AI & Robotics at New Uzbekistan University.
-        I enjoy learning new technologies, working on personal projects, and exploring
-        how innovation can shape the future.
-      </p>
+      <h3>New Uzbekistan University</h3>
+      <p>AI & Robotics • Freshman</p>
     </div>
-  </section>
 
-  <section id="education">
-    <h2 class="section-title">Education</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>New Uzbekistan University</h3>
-        <p>AI & Robotics • Freshman</p>
-      </div>
-      <div class="card">
-        <h3>Scores</h3>
-        <p>IELTS: 6.0</p>
-        <p>SAT: 1300</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects">
-    <h2 class="section-title">What I'm Doing</h2>
     <div class="card">
-      <ul>
-        <li>Studying AI, ML, and Robotics fundamentals</li>
-        <li>Exploring startup ideas and entrepreneurship</li>
-        <li>Building clean, modern web projects</li>
-      </ul>
+      <h3>Scores</h3>
+      <p>IELTS 6.0 • SAT 1300</p>
     </div>
-  </section>
-  <section id="carousel">
-    <h2 class="section-title">Moments</h2>
+  </div>
+</section>
 
-    <div class="carousel">
-        <div class="carousel-track">
-        <!-- placeholders -->
-        <img src="me.jpg" alt="placeholder" />
-        <img src="newcampus.jpg" alt="placeholder" />
-        <img src="gamedev.webp" alt="placeholder" />
-        <img src="newuu.webp" alt="placeholder" />
-        <img src="download-_2_.jpg" alt="placeholder" />
-        <img src="gamedevhq2.jpg" alt="placeholder" />
 
-        <!-- duplicate for seamless loop -->
-        <img src="me.jpg" alt="placeholder" />
-        <img src="newcampus.jpg" alt="placeholder" />
-        <img src="gamedev.webp" alt="placeholder" />
-        <img src="newuu.webp" alt="placeholder" />
-        <img src="download-_2_.jpg" alt="placeholder" />
-        <img src="gamedevhq2.jpg" alt="placeholder" />
-        </div>
+<!-- WHAT I DO -->
+<section id="projects">
+  <h2 class="section-title">What I Do</h2>
+  <div class="card">
+    <ul>
+      <li>AI & ML fundamentals</li>
+      <li>Game development</li>
+      <li>Web apps & side projects</li>
+      <li>Startup ideas & experiments</li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <h2 class="section-title">Portfolio</h2>
+
+  <div class="grid">
+
+    <div class="card project">
+      <h3>🚀 Space Shooter</h3>
+      <p>Unity WebGL arcade shooter with fast gameplay and scoring.</p>
+      <a href="https://linusip.itch.io/playspaceshooter" target="_blank" class="btn">Open →</a>
     </div>
-  </section>
 
-  <footer>
-    © 2025 Abdulloh
-  </footer>
+    <div class="card project">
+      <h3>🐍 Hunter Snake</h3>
+      <p>Modern browser version of Snake with smooth controls.</p>
+      <a href="https://linusip.github.io/hunter_snake/" target="_blank" class="btn">Open →</a>
+    </div>
 
-  <script>
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
+    <div class="card project">
+      <h3>🌍 Nation Game</h3>
+      <p>Interactive geography game to learn countries and maps.</p>
+      <a href="https://linusip.github.io/nationgame.com/" target="_blank" class="btn">Open →</a>
+    </div>
 
-    // Soft fade-in on scroll
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = 1;
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, { threshold: 0.15 });
-    
-
-    
+  </div>
+</section>
 
 
+<!-- MOMENTS -->
+<section id="moments">
+  <h2 class="section-title">Moments</h2>
+
+  <div class="carousel">
+    <div class="track">
+      <img src="me.jpg"/>
+      <img src="newcampus.jpg"/>
+      <img src="gamedev.webp"/>
+      <img src="newuu.webp"/>
+      <img src="download-_2_.jpg"/>
+
+      <!-- duplicate -->
+      <img src="me.jpg"/>
+      <img src="newcampus.jpg"/>
+      <img src="gamedev.webp"/>
+      <img src="newuu.webp"/>
+      <img src="download-_2_.jpg"/>
+    </div>
+  </div>
+</section>
 
 
-
-    document.querySelectorAll('section, header').forEach(el => {
-      el.style.opacity = 0;
-      el.style.transform = 'translateY(30px)';
-      el.style.transition = 'opacity 1s ease, transform 1s ease';
-      observer.observe(el);
-    });
-
-  </script>
+<footer>
+  © 2025 Abdulloh
+</footer>
 
 </body>
 </html>
